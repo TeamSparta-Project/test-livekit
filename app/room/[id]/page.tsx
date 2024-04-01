@@ -35,6 +35,7 @@ export default function Page() {
     console.log(isError);
   }
 
+  // 현재 토큰을 별도로 저장하고 있지 않기에 제거할 수 없으므로 임시로 route 변경
   const deleteToken = () => {
     routers.replace(`/room`);
   };
@@ -45,7 +46,7 @@ export default function Page() {
       serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} // 필수 요소
       video={true}
       audio={true}
-      onDisconnected={deleteToken}
+      onDisconnected={deleteToken} //연결 중단 시 발생하는 이벤트 핸들러
       // Use the default LiveKit theme for nice styles.
       data-lk-theme="default"
       style={{ height: "100dvh" }}
